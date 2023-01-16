@@ -1,0 +1,27 @@
+{
+  "footer": {
+    "about": {
+      "title": "Sobre",
+      "origin": "Nós",
+      "blog": "Blog",
+      "changelog": "Histórico de Alterações"
+    },
+    "platform": {
+      "faq": "FAQ",
+      "pricing": "Preços",
+      "terms-and-privacy": "Termos & Privacidade",
+      "title": "Plataforma"
+    },
+    "support": {
+      "contact": "Entre em contato",
+      "title": "Suporte"
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "new-cv": "Novo CV"
+  },
+  "pages": {
+    "home": "Faça seu currículo gratis"
+  }
+}

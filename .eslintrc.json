@@ -1,3 +1,44 @@
 {
-  "extends": "next/core-web-vitals"
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+  "ignorePatterns": ["node_modules/*", "!.prettierrc.js"],
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended", // TypeScript rules
+    "plugin:react/recommended", // React rules
+    "plugin:react-hooks/recommended", // React hooks rules
+    "plugin:prettier/recommended", // Prettier plugin
+    "plugin:tailwindcss/recommended" // Tailwindcss plugin
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 6
+  },
+  "plugins": ["tailwindcss"],
+  "rules": {
+    // We will use TypeScript's types for component props instead
+    "react/prop-types": "off",
+
+    // No need to import React when using Next.js
+    "react/react-in-jsx-scope": "off",
+
+    "react/jsx-curly-brace-presence": [
+      "warn",
+      { "props": "never", "children": "never" }
+    ],
+
+    // Why would you want unused vars?
+    "@typescript-eslint/no-unused-vars": ["warn"],
+
+    // I suggest this setting for requiring return types on functions only where useful
+    "@typescript-eslint/explicit-function-return-type": "off",
+
+    // Includes .prettierrc.js rules
+    "prettier/prettier": "warn",
+
+    "tailwindcss/no-custom-classname": "off"
+  }
 }
