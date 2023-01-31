@@ -1,65 +1,72 @@
 <html class="{{mode}}">
-  <div class="bg-white p-4">
-    <div class="flex gap-x-2">
-      {{#if photo}}
-        <img src="{{photo}}" class="rounded-full h-24 w-24" />
-      {{/if}}
-      <div class="my-auto">
-        <h1 class="font-bold text-2xl">{{name}}</h1>
-        <h2 class="font-semibold text-lg">{{jobTitle}}</h2>
-        <h2 class="font-light text-sm">{{location}}</h2>
-      </div>
-    </div>
+<div class="bg-white p-4">
+	<div class="flex gap-x-2">
+		{{#if photo}}
+		<img src="{{photo}}" class="rounded-full h-24 w-24" />
+		{{/if}}
+		<div class="my-auto">
+			<h1 class="font-bold text-2xl">{{name}}</h1>
+			{{#if jobTitle}}
+			<h2 class="font-semibold text-lg">{{jobTitle}}</h2>
+			{{/if}}
+			{{#if location}}
+			<h2 class="font-light text-sm">{{location}}</h2>
+			{{/if}}
+		</div>
+	</div>
 
-    {{#if summary}}
-      <p class="mt-4 font-extralight text-lg">{{summary}}</p>
-    {{/if}}
+	{{#if summary}}
+	<p class="mt-4 font-extralight text-lg">{{summary}}</p>
+	{{/if}}
 
-    {{#if skills}}
-      <h3 class="mt-4 font-semibold text-xl">Skills</h3>
-      <ul role="list" class="flex flex-wrap">
-        {{#each skills}}
-        <li class="font-medium after:content-['⠀·⠀'] last:after:content-['']">{{this}}</li>
-        {{/each}}
-      </ul>
-    {{/if}}
+	{{#if skills}}
+	<h3 class="mt-4 font-semibold text-xl">Habilidades</h3>
+	<ul role="list" class="flex flex-wrap">
+		{{#each skills}}
+		<li
+			class="font-medium first:before:content-[''] before:content-['·_'] after:content-['_·'] last:after:content-['']">
+			{{this}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
 
-    {{#if workExperience}}
-      <h3 class="mt-4 font-semibold text-xl">Work Experience</h3>
-      <div class="flex flex-wrap gap-4">
-        {{#each workExperience}}
-        <div>
-          <h4 class="border-b border-b-primary-500/30 font-light text-lg">{{company}}</h4>
-          <p><strong>{{jobTitle}}</strong> | {{duration}}</p>
-          <ul>
-            {{#each responsibilities}}
-            <li>{{this}}</li>
-            {{/each}}
-          </ul>
-        </div>
-        {{/each}}
-      </div>
-    {{/if}}
+	{{#if workExperience}}
+	<h3 class="mt-4 font-semibold text-xl">Experiência Profissional</h3>
+	<div class="flex flex-wrap gap-4">
+		{{#each workExperience}}
+		<div>
+			<h4 class="border-b border-b-primary-500/30 font-light text-lg">{{company}}</h4>
+			<p><strong>{{jobTitle}}</strong> | {{duration}}</p>
+			<ul>
+				{{#each responsibilities}}
+				<li>{{this}}</li>
+				{{/each}}
+			</ul>
+		</div>
+		{{/each}}
+	</div>
+	{{/if}}
 
-    {{#if education}}
-      <h3 class="mt-4 font-semibold text-xl">Education</h3>
-      <div class="flex flex-wrap gap-4">
-        {{#each education}}
-        <div>
-          <h4 class="border-b border-b-primary-500/30 font-light text-lg">{{degree}}</h4>
-          <p><strong>{{institution}}</strong> | {{fieldOfStudy}} | {{duration}}</p>
-        </div>
-        {{/each}}
-      </div>
-    {{/if}}
+	{{#if education}}
+	<h3 class="mt-4 font-semibold text-xl">Educação</h3>
+	<div class="flex flex-col gap-3">
+		{{#each education}}
+		<div>
+			<h4 class="border-b border-b-primary-500/30 font-light text-lg">{{degree}}</h4>
+			<p><strong>{{institution}}</strong> | {{start}} - {{end}}</p>
+		</div>
+		{{/each}}
+	</div>
+	{{/if}}
 
-    {{#if additionalInformation}}
-      <h3 class="mt-4 font-semibold text-xl">Additional Information</h3>
-      <ul>
-        {{#each additionalInformation}}
-        <li>{{this}}</li>
-        {{/each}}
-      </ul>
-    {{/if}}
-  </div>
+	{{#if additionalInformation}}
+	<h3 class="mt-4 font-semibold text-xl">Informações Adicionais</h3>
+	<ul>
+		{{#each additionalInformation}}
+		<li>{{this}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+</div>
+
 </html>

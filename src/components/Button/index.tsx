@@ -1,44 +1,35 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
-  className?: string;
-  parentClassName?: string;
+	children: ReactNode;
 };
 
 export const ButtonPrimary: FC<ButtonProps> = ({
-  children,
-  className,
-  parentClassName,
-  ...rest
+	children,
+	className,
+	...rest
 }) => {
-  return (
-    <button
-      className={`group relative inline-block overflow-hidden border border-primary-600 px-8 py-3 focus:outline-none focus:ring ${parentClassName}`}
-      {...rest}
-    >
-      <span className="absolute inset-y-0 left-0 w-[5px] bg-primary-600 transition-all group-hover:w-full group-active:bg-primary-500"></span>
-
-      <span
-        className={`relative text-sm font-medium text-primary-600 transition-colors group-hover:text-white ${className}`}
-      >
-        {children}
-      </span>
-    </button>
-  );
+	return (
+		<button
+			className={`flex items-center gap-3 rounded-lg border border-violet-500 px-6 py-4 font-semibold transition-colors hover:border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-700 focus:ring-offset-2 focus:ring-offset-background ${className}`}
+			{...rest}
+		>
+			{children}
+		</button>
+	);
 };
 
 export const ButtonUnderline: FC<ButtonProps> = ({
-  children,
-  className,
-  ...rest
+	children,
+	className,
+	...rest
 }) => {
-  return (
-    <button
-      className={`relative flex items-center gap-1 font-medium text-primary-700 before:absolute before:-bottom-0 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-primary-900 before:transition hover:before:scale-100 ${className}`}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
+	return (
+		<button
+			className={`font-medium text-primary-700 hover:underline hover:decoration-primary-700 hover:underline-offset-2 ${className}`}
+			{...rest}
+		>
+			{children}
+		</button>
+	);
 };

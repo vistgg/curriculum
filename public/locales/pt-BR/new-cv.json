@@ -1,35 +1,38 @@
 {
-  "fields": {
-    "photo": {
-      "title": "Foto (Você)",
-      "select-image": "Selecionar Imagem",
-      "uploading": "Fazendo Upload..."
-    },
-    "name": {
-      "title": "Nome Completo",
-      "eg": "e.g.: João Gomes da Silva"
-    },
-    "job-title": {
-      "title": "Cargo Atual",
-      "eg":"e.g.: Auxiliar Administrativo"
-    },
-    "location": {
-      "title": "Localização",
-      "eg": "e.g.: São Paulo, SP, Brasil"
-    },
-    "skills": {
-      "title": "Habilidades",
-      "help": "Assim que escrever, aperte enter para adicionar, e backspace para deletar.",
-      "eg": "e.g.: React"
-    },
-    "summary": {
-      "title": "Uma breve descrição sobre você",
-      "eg": "e.g.: Auxiliar Administrativo com expertise em contabilidade e serviços gerais..."
-    }
-  },
-  "generate": "Gerar CV",
-  "regenerate": "Forçar Re-Geração",
-  "print": "Imprimir",
-  "edit": "Editar Dados",
-  "start-anew": "Começar um novo CV"
+	"fields": {
+		"education": {
+			"manage": "Gerenciar Educação"
+		},
+		"photo": {
+			"title": "Foto (Você)",
+			"select-image": "Selecionar Imagem",
+			"uploading": "Fazendo Upload..."
+		},
+		"name": {
+			"title": "Nome Completo",
+			"eg": "e.g.: João Gomes da Silva"
+		},
+		"job-title": {
+			"title": "Cargo Atual",
+			"eg": "e.g.: Auxiliar Administrativo"
+		},
+		"location": {
+			"title": "Localização",
+			"eg": "e.g.: São Paulo, SP, Brasil"
+		},
+		"skills": {
+			"title": "Habilidades",
+			"help": "Assim que escrever, aperte enter para adicionar, e backspace para deletar.",
+			"eg": "e.g.: React"
+		},
+		"summary": {
+			"title": "Uma breve descrição sobre você",
+			"eg": "e.g.: Auxiliar Administrativo com expertise em contabilidade e serviços gerais..."
+		}
+	},
+	"generate": "Gerar CV",
+	"regenerate": "Forçar Re-Geração",
+	"print": "Imprimir",
+	"edit": "Editar Dados",
+	"start-anew": "Começar um novo CV"
 }

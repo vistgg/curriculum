@@ -1,23 +1,20 @@
-import { useTranslation } from "next-i18next";
-import Head from "next/head";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
+import Head from "next/head";
 
 type LayoutProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
+	HTMLAttributes<HTMLDivElement>,
+	HTMLDivElement
 > & {
-  title: string;
+	title: string;
 };
 
 export function Layout({ children, title, ...rest }: Base<LayoutProps>) {
-  const { t } = useTranslation(["common", "navigation"]);
-
-  return (
-    <div {...rest}>
-      <Head>
-        <title>{title + " - " + t("common:app-name")}</title>
-      </Head>
-      {children}
-    </div>
-  );
+	return (
+		<div {...rest}>
+			<Head>
+				<title>{title + " - Lightbringer"}</title>
+			</Head>
+			{children}
+		</div>
+	);
 }
