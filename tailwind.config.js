@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { purple, zinc } = require("tailwindcss/colors");
+const { violet, zinc } = require("tailwindcss/colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				primary: purple,
+				primary: violet,
 				background: zinc["100"]
 			},
 			fontFamily: {

@@ -16,7 +16,7 @@
 	</div>
 
 	{{#if summary}}
-	<p class="mt-4 font-extralight text-lg">{{summary}}</p>
+	<p class="mt-4 break-all font-extralight text-lg">{{summary}}</p>
 	{{/if}}
 
 	{{#if skills}}
@@ -32,14 +32,15 @@
 
 	{{#if workExperience}}
 	<h3 class="mt-4 font-semibold text-xl">Experiência Profissional</h3>
-	<div class="flex flex-wrap gap-4">
+	<div class="flex flex-col gap-3">
 		{{#each workExperience}}
 		<div>
 			<h4 class="border-b border-b-primary-500/30 font-light text-lg">{{company}}</h4>
-			<p><strong>{{jobTitle}}</strong> | {{duration}}</p>
-			<ul>
+			<p><strong>{{jobTitle}}</strong> | {{start}} - {{end}}</p>
+			<ul role="list" class="flex flex-wrap">
 				{{#each responsibilities}}
-				<li>{{this}}</li>
+				<li class="first:before:content-[''] before:content-['·_'] after:content-['_·'] last:after:content-['']">
+					{{this}}</li>
 				{{/each}}
 			</ul>
 		</div>

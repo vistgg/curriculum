@@ -16,7 +16,7 @@ export const links: LinkProp[] = [
 	},
 	{
 		name: "Novo CV",
-		href: "/cv/new",
+		href: "/novo",
 		Icon: FilePlus
 	}
 ];

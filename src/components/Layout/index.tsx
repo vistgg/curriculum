@@ -12,7 +12,7 @@ export function Layout({ children, title, ...rest }: Base<LayoutProps>) {
 	return (
 		<div {...rest}>
 			<Head>
-				<title>{title + " - Lightbringer"}</title>
+				<title>{title + " - Vist"}</title>
 			</Head>
 			{children}
 		</div>

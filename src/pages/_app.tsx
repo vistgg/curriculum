@@ -2,10 +2,10 @@ import { Suspense } from "react";
 import { Inter } from "@next/font/google";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import Script from "next/script";
 import { SessionProvider } from "next-auth/react";
 
 import { Loading } from "@lightbringer/components/Loading";
-import Navbar from "@lightbringer/components/Navbar";
 
 import "../styles/globals.css";
 
@@ -30,10 +30,18 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 				/>
 			</Head>
 
+			<Script
+				async
+				strategy="afterInteractive"
+				onError={(e) => {
+					console.error("Script failed to load", e);
+				}}
+				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5180240693126418"
+			/>
 			<div className="flex h-screen flex-1 flex-col overflow-y-auto">
 				<Suspense fallback={<Loading />}>
 					<SessionProvider session={session}>
-						<Navbar />
+						{/* <Navbar /> */}
 						<main className="container m-auto flex flex-1 p-5">
 							<Component {...pageProps} />
 						</main>

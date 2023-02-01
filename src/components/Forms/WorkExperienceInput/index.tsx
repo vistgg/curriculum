@@ -3,45 +3,51 @@ import { UseFormSetValue } from "react-hook-form";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Check, Plus, X } from "lucide-react";
 
-import { ButtonPrimary } from "@lightbringer/components/Button";
-import { AddEducation } from "@lightbringer/components/Forms/EducationInput/Add";
-import { EducationElement } from "@lightbringer/components/Forms/EducationInput/Element";
-import { CVSchemaType, EducationSchemaType } from "@lightbringer/zod/CVSchema";
+import {
+	ButtonPrimary,
+	ButtonPrimaryOutline
+} from "@lightbringer/components/Button";
+import { AddWorkExperience } from "@lightbringer/components/Forms/WorkExperienceInput/Add";
+import { WorkExperienceElement } from "@lightbringer/components/Forms/WorkExperienceInput/Element";
+import {
+	CVSchemaType,
+	WorkExperienceSchemaType
+} from "@lightbringer/zod/CVSchema";
 
-type EducationInputProps = {
-	education: EducationSchemaType[];
+type WorkExperienceInputProps = {
+	workExperience: WorkExperienceSchemaType[];
 	setValue: UseFormSetValue<CVSchemaType>;
 };
 
-export const EducationInput: FC<EducationInputProps> = ({
-	education,
+export const WorkExperienceInput: FC<WorkExperienceInputProps> = ({
+	workExperience,
 	setValue
 }) => {
 	const triggerRef = useRef<HTMLButtonElement>(null);
 
-	const addElement = (element: EducationSchemaType) => {
-		setValue("education", [...education, element]);
+	const addElement = (element: WorkExperienceSchemaType) => {
+		setValue("workExperience", [...workExperience, element]);
 	};
 
 	const deleteElement = (i: number) => {
 		setValue(
-			"education",
-			education.filter((_, index) => index !== i)
+			"workExperience",
+			workExperience.filter((_, index) => index !== i)
 		);
 	};
 
 	return (
 		<Dialog.Root>
 			<Dialog.Trigger
-				ref={triggerRef}
 				className="flex w-full items-center gap-3 rounded-lg border border-primary-600 px-6 py-4 font-semibold text-primary-800 transition-colors hover:border-primary-700 hover:bg-primary-100 hover:text-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 focus:ring-offset-background"
+				ref={triggerRef}
 				type="button"
 			>
 				<Plus
 					className="text-violet-500"
 					size={20}
 				/>
-				Gerenciar Capacitações
+				Gerenciar Experiências de Trabalho
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="fixed inset-0 h-screen w-screen bg-black/80" />
@@ -53,21 +59,21 @@ export const EducationInput: FC<EducationInputProps> = ({
 						/>
 					</Dialog.Close>
 					<Dialog.Title className="text-3xl font-extrabold leading-tight">
-						Minhas Capacitações
+						Minhas Experiências de Trabalho
 					</Dialog.Title>
 					<Dialog.Description>
-						O que você cursou, seja bacharelado, licenciatura, o que for.
+						Onde você trabalhou, com que cargo e quais responsabilidades.
 					</Dialog.Description>
 
-					<AddEducation addElement={addElement} />
+					<AddWorkExperience addElement={addElement} />
 					<div className="flex flex-1 flex-col space-y-0.5 overflow-auto">
-						{education.length > 0 ? (
-							education.map((element, index) => (
-								<EducationElement
+						{workExperience.length > 0 ? (
+							workExperience.map((element, index) => (
+								<WorkExperienceElement
 									del={deleteElement}
 									element={element}
 									index={index}
-									key={`${element.degree}`}
+									key={`${element.company}-${element.jobTitle}`}
 								/>
 							))
 						) : (

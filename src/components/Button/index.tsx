@@ -11,7 +11,22 @@ export const ButtonPrimary: FC<ButtonProps> = ({
 }) => {
 	return (
 		<button
-			className={`flex items-center gap-3 rounded-lg border border-violet-500 px-6 py-4 font-semibold transition-colors hover:border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-700 focus:ring-offset-2 focus:ring-offset-background ${className}`}
+			className={`flex items-center gap-3 rounded-lg bg-primary-600 px-6 py-4 font-semibold text-zinc-100 transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 focus:ring-offset-background ${className}`}
+			{...rest}
+		>
+			{children}
+		</button>
+	);
+};
+
+export const ButtonPrimaryOutline: FC<ButtonProps> = ({
+	children,
+	className,
+	...rest
+}) => {
+	return (
+		<button
+			className={`flex items-center gap-3 rounded-lg border border-primary-600 px-6 py-4 font-semibold text-primary-800 transition-colors hover:border-primary-700 hover:bg-primary-100 hover:text-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 focus:ring-offset-background ${className}`}
 			{...rest}
 		>
 			{children}

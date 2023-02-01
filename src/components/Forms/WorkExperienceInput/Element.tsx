@@ -1,15 +1,15 @@
 import { FC } from "react";
 import { X } from "lucide-react";
 
-import { EducationSchemaType } from "@lightbringer/zod/CVSchema";
+import { WorkExperienceSchemaType } from "@lightbringer/zod/CVSchema";
 
-type EducationElementProps = {
-	element: EducationSchemaType;
+type WorkExperienceElementProps = {
+	element: WorkExperienceSchemaType;
 	index: number;
 	del: (i: number) => void;
 };
 
-export const EducationElement: FC<EducationElementProps> = ({
+export const WorkExperienceElement: FC<WorkExperienceElementProps> = ({
 	del,
 	element,
 	index
@@ -23,10 +23,20 @@ export const EducationElement: FC<EducationElementProps> = ({
 				<X />
 			</button>
 			<h4 className="border-b border-b-primary-500/30 text-lg font-light">
-				{element.degree}
+				{element.company}
 			</h4>
 			<p>
-				<strong>{element.institution}</strong> | {element.start} - {element.end}
+				<strong>{element.jobTitle}</strong> | {element.start} - {element.end}
+			</p>
+			<p>
+				{element.responsibilities.map((r) => (
+					<span
+						className="before:content-['·_'] after:content-['_·'] first:before:content-[''] last:after:content-['']"
+						key={r}
+					>
+						{r}
+					</span>
+				))}
 			</p>
 		</div>
 	);
