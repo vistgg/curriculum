@@ -17,14 +17,15 @@ interface AddEducationProps {
 
 export function AddEducation({ addElement }: AddEducationProps) {
 	const triggerRef = useRef<HTMLButtonElement>(null);
-	const { handleSubmit, register } = useForm<EducationSchemaType>({
+	const { handleSubmit, reset, register } = useForm<EducationSchemaType>({
 		resolver: zodResolver(EducationSchema)
 	});
 
 	const submitEducation: SubmitHandler<EducationSchemaType> = async (input) => {
-		Promise.allSettled([addElement(input)]).then(() =>
-			triggerRef.current?.click()
-		);
+		Promise.allSettled([addElement(input)]).then(() => {
+			reset();
+			triggerRef.current?.click();
+		});
 	};
 
 	return (

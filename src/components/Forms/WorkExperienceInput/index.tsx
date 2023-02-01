@@ -3,10 +3,7 @@ import { UseFormSetValue } from "react-hook-form";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Check, Plus, X } from "lucide-react";
 
-import {
-	ButtonPrimary,
-	ButtonPrimaryOutline
-} from "@lightbringer/components/Button";
+import { ButtonPrimary } from "@lightbringer/components/Button";
 import { AddWorkExperience } from "@lightbringer/components/Forms/WorkExperienceInput/Add";
 import { WorkExperienceElement } from "@lightbringer/components/Forms/WorkExperienceInput/Element";
 import {

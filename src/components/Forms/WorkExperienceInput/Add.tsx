@@ -20,7 +20,7 @@ interface AddWorkExperienceProps {
 export function AddWorkExperience({ addElement }: AddWorkExperienceProps) {
 	const triggerRef = useRef<HTMLButtonElement>(null);
 	const [responsibilities, setResponsibilities] = useState<Tag[]>([]);
-	const { getValues, handleSubmit, register, setValue } =
+	const { getValues, reset, handleSubmit, register, setValue } =
 		useForm<WorkExperienceSchemaType>({
 			resolver: zodResolver(WorkExperienceSchema),
 			defaultValues: {
@@ -31,9 +31,11 @@ export function AddWorkExperience({ addElement }: AddWorkExperienceProps) {
 	const submitWorkExperience: SubmitHandler<WorkExperienceSchemaType> = async (
 		input
 	) => {
-		Promise.allSettled([addElement(input)]).then(() =>
-			triggerRef.current?.click()
-		);
+		Promise.allSettled([addElement(input)]).then(() => {
+			reset();
+			setResponsibilities([]);
+			triggerRef.current?.click();
+		});
 	};
 
 	return (
