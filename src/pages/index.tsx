@@ -67,7 +67,7 @@ export default function NewCV() {
 				O jeito mais fácil de montar seu curriculum na internet.
 			</p>
 			<p className="text-center text-xs text-zinc-500">
-				O jeito mais fácil de montar seu curriculum na internet.
+				Campos com * são obrigatórios
 			</p>
 			{curriculumHTML.length > 0 ? (
 				<div className="lg:w-8/10 w-full space-y-3">
