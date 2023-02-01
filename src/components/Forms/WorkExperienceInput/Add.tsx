@@ -42,7 +42,7 @@ export function AddWorkExperience({ addElement }: AddWorkExperienceProps) {
 		<Dialog.Root>
 			<Dialog.Trigger
 				ref={triggerRef}
-				className="flex gap-x-1 font-medium text-primary-700 hover:underline hover:decoration-primary-700 hover:underline-offset-2"
+				className="mt-6 flex w-fit gap-x-1 rounded-lg font-medium text-primary-700 focus:outline-none focus:outline-offset-2 focus:outline-primary-700"
 				type="button"
 			>
 				<Plus
@@ -54,7 +54,7 @@ export function AddWorkExperience({ addElement }: AddWorkExperienceProps) {
 			<Dialog.Portal>
 				<Dialog.Overlay className="fixed inset-0 h-screen w-screen bg-black/80" />
 				<Dialog.Content className="absolute top-1/2 left-1/2 flex w-full max-w-lg -translate-x-1/2 -translate-y-1/2 flex-col rounded-2xl bg-background p-6">
-					<Dialog.Close className="absolute right-6 top-6 rounded-lg text-zinc-400 hover:text-zinc-200 focus:outline-none focus:ring-2 focus:ring-violet-700 focus:ring-offset-2 focus:ring-offset-background">
+					<Dialog.Close className="absolute right-6 top-6 rounded-lg text-zinc-400 hover:text-zinc-600 focus:outline-none focus:outline-offset-2 focus:outline-primary-700">
 						<X
 							size={24}
 							aria-label="Fechar"

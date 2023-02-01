@@ -44,6 +44,15 @@ export const SkillsInput: FC<SkillsInputProps> = ({
 		setValue("skills", [...getValues("skills"), tag.text]);
 	};
 
+	const handleInputBlur = (text: string) => {
+		const newTag: Tag = {
+			id: text,
+			text: text
+		};
+
+		handleAddition(newTag);
+	};
+
 	const handleDrag = (tag: Tag, currPos: number, newPos: number) => {
 		const newTags = skills.slice();
 
@@ -83,6 +92,7 @@ export const SkillsInput: FC<SkillsInputProps> = ({
 					remove: "ml-2 text-xl text-gray-300 hover:text-gray-100",
 					selected: "flex flex-wrap gap-y-1 w-full"
 				}}
+				handleInputBlur={handleInputBlur}
 				autofocus={false}
 				id="skillstags"
 				name="skillstags"

@@ -35,6 +35,15 @@ export const WorkExperienceResponsibilities: FC<
 		setValue("responsibilities", [...getValues("responsibilities"), tag.text]);
 	};
 
+	const handleInputBlur = (text: string) => {
+		const newTag: Tag = {
+			id: text,
+			text: text
+		};
+
+		handleAddition(newTag);
+	};
+
 	const handleDrag = (tag: Tag, currPos: number, newPos: number) => {
 		const newTags = responsibilities.slice();
 
@@ -54,7 +63,7 @@ export const WorkExperienceResponsibilities: FC<
 	return (
 		<div className="flex flex-col gap-y-1">
 			<label
-				htmlFor="skillstags"
+				htmlFor="responsibilitiestags"
 				className="block text-sm font-bold text-gray-700"
 			>
 				Responsabilidades
@@ -76,8 +85,9 @@ export const WorkExperienceResponsibilities: FC<
 					selected: "flex flex-wrap gap-y-1 w-full"
 				}}
 				autofocus={false}
-				id="skillstags"
-				name="skillstags"
+				handleInputBlur={handleInputBlur}
+				id="responsibilitiestags"
+				name="responsibilitiestags"
 				tags={responsibilities}
 				placeholder="ex.: Gestão de Risco, Planejamento Estratégico"
 				delimiters={delimiters}
