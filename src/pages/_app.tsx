@@ -24,20 +24,16 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 					name="viewport"
 					content="width=device-width, initial-scale=1"
 				/>
+				<meta
+					name="monetag"
+					content={process.env.NEXT_PUBLIC_MONETAG}
+				></meta>
 				<link
 					rel="icon"
 					href="/favicon.ico"
 				/>
 			</Head>
 
-			<Script
-				async
-				strategy="afterInteractive"
-				onError={(e) => {
-					console.error("Script failed to load", e);
-				}}
-				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5180240693126418"
-			/>
 			<div className="flex h-screen flex-1 flex-col overflow-y-auto">
 				<Suspense fallback={<Loading />}>
 					<SessionProvider session={session}>
