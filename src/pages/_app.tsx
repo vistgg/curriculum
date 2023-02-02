@@ -67,6 +67,11 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 							});
 						`}
 					</Script>
+					<Script id="ads">
+						{`
+							(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://inklinkor.com/tag.min.js',5692178,document.body||document.documentElement)
+						`}
+					</Script>
 				</>
 			) : null}
 		</div>
