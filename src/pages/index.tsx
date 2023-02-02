@@ -60,15 +60,24 @@ export default function NewCV() {
 			className="mx-auto w-full space-y-3 md:w-8/12"
 			title="Faça seu Curriculum Vitae Fácil"
 		>
-			<h2 className="-mb-5 text-center text-3xl font-bold">
+			<h2 className="-mb-4 text-center text-3xl font-bold">
 				Curriculum Vitae Fácil
 			</h2>
 			<p className="text-center text-sm text-zinc-600">
 				O jeito mais fácil de montar seu curriculum na internet.
 			</p>
-			<p className="text-center text-xs text-zinc-500">
-				Campos com * são obrigatórios
-			</p>
+			<ul className="list-inside list-disc">
+				<li className="list-none text-sm uppercase text-zinc-800">Atenção</li>
+				<li className="text-xs text-zinc-500">
+					Campos com <strong>*</strong> são obrigatórios
+				</li>
+				<li className="text-xs text-zinc-500">
+					Nenhum dado é salvo em nossos servidores.
+				</li>
+				<li className="text-xs text-zinc-500">
+					Em breve: personalização do modelo de currículum
+				</li>
+			</ul>
 			{curriculumHTML.length > 0 ? (
 				<div className="lg:w-8/10 w-full space-y-3">
 					<div className="flex flex-wrap justify-between gap-3">
@@ -119,7 +128,7 @@ export default function NewCV() {
 							uploadingImage="Fazendo upload"
 							onChangePicture={setValue}
 						/>
-						<div className="flex w-full flex-col">
+						<div className="flex w-full flex-col space-y-2 lg:justify-between lg:space-y-0">
 							<TextInput
 								autoComplete="off"
 								label="Nome*"

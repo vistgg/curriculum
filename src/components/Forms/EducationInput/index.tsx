@@ -1,7 +1,7 @@
 import { FC, useRef } from "react";
 import { UseFormSetValue } from "react-hook-form";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Check, Plus, X } from "lucide-react";
+import { Check, GraduationCap, X } from "lucide-react";
 
 import { ButtonPrimary } from "@lightbringer/components/Button";
 import { AddEducation } from "@lightbringer/components/Forms/EducationInput/Add";
@@ -37,11 +37,11 @@ export const EducationInput: FC<EducationInputProps> = ({
 				className="flex w-full items-center gap-3 rounded-lg border border-primary-600 px-6 py-4 font-semibold text-primary-800 transition-colors hover:border-primary-700 hover:bg-primary-100 hover:text-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 focus:ring-offset-background"
 				type="button"
 			>
-				<Plus
+				<GraduationCap
 					className="text-violet-500"
 					size={20}
 				/>
-				Gerenciar Capacitações
+				Capacitações
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="fixed inset-0 h-screen w-screen bg-black/80" />
@@ -60,7 +60,7 @@ export const EducationInput: FC<EducationInputProps> = ({
 					</Dialog.Description>
 
 					<AddEducation addElement={addElement} />
-					<div className="flex flex-1 flex-col space-y-0.5 overflow-auto">
+					<div className="mt-2 flex flex-1 flex-col space-y-0.5 overflow-auto">
 						{education.length > 0 ? (
 							education.map((element, index) => (
 								<EducationElement

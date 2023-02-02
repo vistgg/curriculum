@@ -20,18 +20,29 @@ interface AddWorkExperienceProps {
 export function AddWorkExperience({ addElement }: AddWorkExperienceProps) {
 	const triggerRef = useRef<HTMLButtonElement>(null);
 	const [responsibilities, setResponsibilities] = useState<Tag[]>([]);
-	const { getValues, reset, handleSubmit, register, setValue } =
-		useForm<WorkExperienceSchemaType>({
-			resolver: zodResolver(WorkExperienceSchema),
-			defaultValues: {
-				responsibilities: []
-			}
-		});
+	const {
+		getValues,
+		formState: { errors },
+		reset,
+		handleSubmit,
+		register,
+		setValue
+	} = useForm<WorkExperienceSchemaType>({
+		resolver: zodResolver(WorkExperienceSchema),
+		defaultValues: {
+			responsibilities: []
+		}
+	});
 
 	const submitWorkExperience: SubmitHandler<WorkExperienceSchemaType> = async (
 		input
 	) => {
-		Promise.allSettled([addElement(input)]).then(() => {
+		Promise.allSettled([
+			addElement({
+				...input,
+				end: input.end && input.end.length > 0 ? input.end : "atual"
+			})
+		]).then(() => {
 			reset();
 			setResponsibilities([]);
 			triggerRef.current?.click();
@@ -65,12 +76,14 @@ export function AddWorkExperience({ addElement }: AddWorkExperienceProps) {
 					</Dialog.Title>
 					<form className="flex flex-col gap-y-2">
 						<TextInput
-							label="Empresa"
+							error={errors.company}
+							label="Empresa*"
 							placeholder="ex.: Supermercado Mineiro"
 							{...register("company")}
 						/>
 						<TextInput
-							label="Cargo"
+							error={errors.jobTitle}
+							label="Cargo*"
 							placeholder="ex.: Gerente Geral"
 							{...register("jobTitle")}
 						/>
@@ -82,14 +95,16 @@ export function AddWorkExperience({ addElement }: AddWorkExperienceProps) {
 							setValue={setValue}
 						/>
 
-						<div className="flex gap-x-2">
+						<div className="flex flex-col gap-y-2 lg:flex-row lg:gap-x-2">
 							<TextInput
-								label="Data de Início"
+								error={errors.start}
+								label="Data de Início*"
 								placeholder="ex.: 2006, 21/03/2021"
 								{...register("start")}
 							/>
 							<TextInput
-								label="Data de Conclusão"
+								error={errors.end}
+								label="Data de Conclusão*"
 								placeholder="ex.: 2024, 01/03/2026, atual"
 								{...register("end")}
 							/>

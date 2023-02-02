@@ -1,26 +1,35 @@
 import { z } from "zod";
 
 export const EducationSchema = z.object({
-	degree: z.string(),
-	institution: z.string(),
-	start: z.string(),
-	end: z.string()
+	degree: z.string().min(1, "Você precisa informar o nome da capacitação"),
+	institution: z
+		.string()
+		.min(1, "Você precisa informar em que instituição é/foi realizada."),
+	start: z
+		.string()
+		.min(1, "Você precisa informar quando começou essa capacitação"),
+	end: z.string().optional()
 });
 
 export const WorkExperienceSchema = z.object({
-	company: z.string(),
-	jobTitle: z.string(),
-	start: z.string(),
-	end: z.string(),
+	company: z.string().min(1, "Você precisa informar o nome da empresa"),
+	jobTitle: z.string().min(1, "Você precisa informar o cargo que ocupou/ocupa"),
+	start: z
+		.string()
+		.min(1, "Você precisa informar quando começou no cargo nessa empresa."),
+	end: z.string().optional(),
 	responsibilities: z.array(z.string())
 });
 
 export const CVSchema = z.object({
-	name: z.string().min(1),
+	name: z.string().min(1, "Você precisa informar seu nome."),
 	photo: z.string().optional(),
 	jobTitle: z.string().optional(),
 	location: z.string().optional(),
-	summary: z.string().min(25).max(512),
+	summary: z
+		.string()
+		.min(25, "Fale um pouco sobre você.")
+		.max(512, "Ok, entendemos que tem bastante coisa, um pouco menos."),
 	skills: z.array(z.string()),
 	additionalInformation: z.array(z.string()).optional(),
 	education: z.array(EducationSchema),

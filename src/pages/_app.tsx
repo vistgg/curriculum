@@ -3,7 +3,6 @@ import { Inter } from "@next/font/google";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
-import { SessionProvider } from "next-auth/react";
 
 import { Loading } from "@lightbringer/components/Loading";
 
@@ -11,7 +10,7 @@ import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function App({ Component, pageProps: { ...pageProps } }: AppProps) {
 	return (
 		<div className={`${inter.variable} bg-background font-sans`}>
 			<Head>
@@ -27,7 +26,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 				<meta
 					name="monetag"
 					content={process.env.NEXT_PUBLIC_MONETAG}
-				></meta>
+				/>
 				<link
 					rel="icon"
 					href="/favicon.ico"
@@ -36,14 +35,35 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 
 			<div className="flex h-screen flex-1 flex-col overflow-y-auto">
 				<Suspense fallback={<Loading />}>
-					<SessionProvider session={session}>
-						{/* <Navbar /> */}
-						<main className="container m-auto flex flex-1 p-5">
-							<Component {...pageProps} />
-						</main>
-						{/* <Footer /> */}
-					</SessionProvider>
+					{/* <SessionProvider session={session}> */}
+					{/* <Navbar /> */}
+					<main className="container m-auto flex flex-1 p-5">
+						<Component {...pageProps} />
+					</main>
+					{/* <Footer /> */}
+					{/* </SessionProvider> */}
 				</Suspense>
+				<div className="flex flex-col justify-evenly bg-zinc-300 p-6 text-center lg:flex-row">
+					<span className="text-zinc-600 hover:text-zinc-800">
+						Feito por{" "}
+						<a
+							target="_blank"
+							href="https://github.com/ivopr"
+							rel="noreferrer"
+						>
+							@ivopr
+						</a>
+					</span>
+					<span className="text-zinc-600 hover:text-zinc-800">
+						<a
+							target="_blank"
+							href="mailto:ivopr@proton.me"
+							rel="noreferrer"
+						>
+							Contato/Suporte: ivopr@proton.me
+						</a>
+					</span>
+				</div>
 			</div>
 
 			{process.env.NODE_ENV === "production" ? (
@@ -67,7 +87,10 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
 							});
 						`}
 					</Script>
-					<Script id="ads">
+					<Script
+						id="ads"
+						strategy="lazyOnload"
+					>
 						{`
 							(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://inklinkor.com/tag.min.js',5692178,document.body||document.documentElement)
 						`}

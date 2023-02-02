@@ -17,12 +17,22 @@ interface AddEducationProps {
 
 export function AddEducation({ addElement }: AddEducationProps) {
 	const triggerRef = useRef<HTMLButtonElement>(null);
-	const { handleSubmit, reset, register } = useForm<EducationSchemaType>({
+	const {
+		handleSubmit,
+		formState: { errors },
+		reset,
+		register
+	} = useForm<EducationSchemaType>({
 		resolver: zodResolver(EducationSchema)
 	});
 
 	const submitEducation: SubmitHandler<EducationSchemaType> = async (input) => {
-		Promise.allSettled([addElement(input)]).then(() => {
+		Promise.allSettled([
+			addElement({
+				...input,
+				end: input.end && input.end.length > 0 ? input.end : "atual"
+			})
+		]).then(() => {
 			reset();
 			triggerRef.current?.click();
 		});
@@ -55,23 +65,27 @@ export function AddEducation({ addElement }: AddEducationProps) {
 					</Dialog.Title>
 					<form className="flex flex-col gap-y-2">
 						<TextInput
-							label="Grau"
+							error={errors.degree}
+							label="Nome*"
 							placeholder="ex.: Bacharelado em Engenharia Elétrica"
 							{...register("degree")}
 						/>
 						<TextInput
-							label="Instituição"
+							error={errors.institution}
+							label="Instituição*"
 							placeholder="ex.: Instituto Federal do Rio de Janeiro, Escola Estadual..."
 							{...register("institution")}
 						/>
 
-						<div className="flex gap-x-2">
+						<div className="flex flex-col gap-y-2 lg:flex-row lg:gap-x-2">
 							<TextInput
-								label="Data de Início"
+								error={errors.start}
+								label="Data de Início*"
 								placeholder="ex.: 2006, 21/03/2021"
 								{...register("start")}
 							/>
 							<TextInput
+								error={errors.end}
 								label="Data de Conclusão"
 								placeholder="ex.: 2024, 01/03/2026, atual"
 								{...register("end")}

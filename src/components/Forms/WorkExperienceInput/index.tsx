@@ -1,7 +1,7 @@
 import { FC, useRef } from "react";
 import { UseFormSetValue } from "react-hook-form";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Check, Plus, X } from "lucide-react";
+import { Briefcase, Check, X } from "lucide-react";
 
 import { ButtonPrimary } from "@lightbringer/components/Button";
 import { AddWorkExperience } from "@lightbringer/components/Forms/WorkExperienceInput/Add";
@@ -40,11 +40,11 @@ export const WorkExperienceInput: FC<WorkExperienceInputProps> = ({
 				ref={triggerRef}
 				type="button"
 			>
-				<Plus
+				<Briefcase
 					className="text-violet-500"
 					size={20}
 				/>
-				Gerenciar Experiências de Trabalho
+				Experiências de Trabalho
 			</Dialog.Trigger>
 			<Dialog.Portal>
 				<Dialog.Overlay className="fixed inset-0 h-screen w-screen bg-black/80" />
@@ -63,7 +63,7 @@ export const WorkExperienceInput: FC<WorkExperienceInputProps> = ({
 					</Dialog.Description>
 
 					<AddWorkExperience addElement={addElement} />
-					<div className="flex flex-1 flex-col space-y-0.5 overflow-auto">
+					<div className="mt-2 flex flex-1 flex-col space-y-0.5 overflow-auto">
 						{workExperience.length > 0 ? (
 							workExperience.map((element, index) => (
 								<WorkExperienceElement
