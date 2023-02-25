@@ -87,7 +87,7 @@ function App({ Component, pageProps: { ...pageProps } }: AppProps) {
 						id="infolinks1"
 						type="text/javascript"
 					>
-						var infolinks_pid = 3388951; var infolinks_wsid = 0;{" "}
+						{`var infolinks_pid = 3388951; var infolinks_wsid = 0;`}
 					</Script>
 					<Script
 						type="text/javascript"
