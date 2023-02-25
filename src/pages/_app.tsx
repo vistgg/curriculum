@@ -53,10 +53,10 @@ function App({ Component, pageProps: { ...pageProps } }: AppProps) {
 					<span className="text-zinc-600 hover:text-zinc-800">
 						<a
 							target="_blank"
-							href="mailto:ivopr@proton.me"
+							href="mailto:ivo@vist.gg"
 							rel="noreferrer"
 						>
-							Contato/Suporte: ivopr@proton.me
+							Contato/Suporte: ivo@vist.gg
 						</a>
 					</span>
 				</div>
@@ -69,7 +69,6 @@ function App({ Component, pageProps: { ...pageProps } }: AppProps) {
 						strategy="lazyOnload"
 						src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
 					/>
-
 					{/* Google Analytics */}
 					<Script
 						id="ga4"
@@ -84,6 +83,16 @@ function App({ Component, pageProps: { ...pageProps } }: AppProps) {
 							});
 						`}
 					</Script>
+					<Script
+						id="infolinks1"
+						type="text/javascript"
+					>
+						var infolinks_pid = 3388951; var infolinks_wsid = 0;{" "}
+					</Script>
+					<Script
+						type="text/javascript"
+						src="//resources.infolinks.com/js/infolinks_main.js"
+					></Script>
 				</>
 			) : null}
 		</div>
