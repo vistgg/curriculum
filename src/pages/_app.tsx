@@ -21,7 +21,7 @@ function App({ Component, pageProps: { ...pageProps } }: AppProps) {
 				/>
 				<meta
 					name="description"
-					content=""
+					content="Faça seu currículum do jeito mais fácil possível, e com sua cara!"
 				/>
 				<meta
 					name="viewport"
