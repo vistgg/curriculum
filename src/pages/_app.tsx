@@ -84,39 +84,6 @@ function App({ Component, pageProps: { ...pageProps } }: AppProps) {
 							});
 						`}
 					</Script>
-
-					{/* ADS */}
-					<Script
-						id="ads-push"
-						strategy="lazyOnload"
-						src="https://tobaltoyon.com/pfe/current/tag.min.js?z=5692208"
-						data-cfasync="false"
-						async
-					/>
-					<Script
-						id="ads-interstitial"
-						async
-						data-cfasync="false"
-						src="//ophoacit.com/1?z=5692314"
-					/>
-					<Script
-						async
-						data-cfasync="false"
-						id="ads-in-page-push"
-					>
-						{`
-							(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('foomaque.net',5692321,document.createElement('script'))
-						`}
-					</Script>
-					<Script
-						async
-						data-cfasync="false"
-						id="ads-vignette"
-					>
-						{`
-							(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gloaphoo.net',5692324,document.createElement('script'))
-						`}
-					</Script>
 				</>
 			) : null}
 		</div>
