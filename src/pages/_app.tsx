@@ -16,16 +16,16 @@ function App({ Component, pageProps: { ...pageProps } }: AppProps) {
 			<Head>
 				<title>Loading - Lightbringer</title>
 				<meta
-					name="google-site-verification"
-					content="kcdvBKnTIE7jRD_0j153LG_RmS1nDewjyCzFOBs67Og"
-				/>
-				<meta
 					name="description"
 					content="Faça seu currículum do jeito mais fácil possível, e com sua cara!"
 				/>
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1"
+				/>
+				<link
+					rel="canonical"
+					href="https://cv.vist.gg/"
 				/>
 				<link
 					rel="icon"
