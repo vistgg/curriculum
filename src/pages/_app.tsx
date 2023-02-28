@@ -24,10 +24,6 @@ function App({ Component, pageProps: { ...pageProps } }: AppProps) {
 					content="width=device-width, initial-scale=1"
 				/>
 				<link
-					rel="canonical"
-					href="https://cv.vist.gg/"
-				/>
-				<link
 					rel="icon"
 					href="/favicon.ico"
 				/>

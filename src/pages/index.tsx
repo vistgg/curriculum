@@ -5,6 +5,7 @@ import { useReactToPrint } from "react-to-print";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { Pen, Plus, Printer, RefreshCcw } from "lucide-react";
+import Head from "next/head";
 
 import { ButtonPrimary } from "@lightbringer/components/Button";
 import { EducationInput } from "@lightbringer/components/Forms/EducationInput";
@@ -60,6 +61,12 @@ export default function NewCV() {
 			className="mx-auto w-full space-y-3 md:w-8/12"
 			title="Faça seu Curriculum Vitae Fácil"
 		>
+			<Head>
+				<link
+					rel="canonical"
+					href="https://cv.vist.gg/"
+				/>
+			</Head>
 			<h2 className="-mb-4 text-center text-3xl font-bold">
 				Curriculum Vitae Fácil
 			</h2>
