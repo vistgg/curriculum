@@ -35,6 +35,7 @@ specifiers:
   motion: ^10.15.3
   next: 13.0.7
   next-auth: ^4.18.6
+  next-base64: ^1.1.0
   next-i18next: ^13.0.2
   nodemailer: ^6.8.0
   postcss: ^8.4.20
@@ -72,6 +73,7 @@ dependencies:
   motion: 10.15.3
   next: 13.0.7_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.18.6_gxrb4puqhmlxj5cjmftw47fgty
+  next-base64: 1.1.0
   next-i18next: 13.0.2_vr2ld2zypzwifyvdbfyqot4dai
   nodemailer: 6.8.0
   react: 18.2.0
@@ -2476,6 +2478,11 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       uuid: 8.3.2
+    dev: false
+
+  /next-base64/1.1.0:
+    resolution: {integrity: sha512-roPubI4go4Cnb8oBp3OcXWoNmzDiMv8ykBfFe02c5imGuZJlXMBXfr6vc9gpr0rvImtgvL1FcQCZAvI/ZESVgg==}
+    engines: {node: '>=12'}
     dev: false
 
   /next-i18next/13.0.2_vr2ld2zypzwifyvdbfyqot4dai:
