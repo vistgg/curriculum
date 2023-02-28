@@ -52,6 +52,7 @@ export default function NewCV() {
 					rel="canonical"
 					href="https://cv.vist.gg/"
 				/>
+				<title>Faça seu curriculum - CV Fácil</title>
 			</Head>
 			<h2 className="-mb-4 text-center text-3xl font-bold">
 				Curriculum Vitae Fácil

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import { Pen, Plus, Printer } from "lucide-react";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import nextBase64 from "next-base64";
 
@@ -48,6 +49,9 @@ export default function Curriculum({
 
 	return (
 		<div className="lg:w-8/10 w-full space-y-3">
+			<Head>
+				<title>Seu Curriculum - CV Fácil</title>
+			</Head>
 			<div className="flex flex-wrap gap-3">
 				<ButtonPrimary
 					className="flex items-center justify-center gap-x-2"
