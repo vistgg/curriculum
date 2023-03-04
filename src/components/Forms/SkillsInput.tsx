@@ -45,12 +45,14 @@ export const SkillsInput: FC<SkillsInputProps> = ({
 	};
 
 	const handleInputBlur = (text: string) => {
-		const newTag: Tag = {
-			id: text,
-			text: text
-		};
+		if (text) {
+			const newTag: Tag = {
+				id: text,
+				text: text
+			};
 
-		handleAddition(newTag);
+			handleAddition(newTag);
+		}
 	};
 
 	const handleDrag = (tag: Tag, currPos: number, newPos: number) => {
